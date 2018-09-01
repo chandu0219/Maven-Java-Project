@@ -17,11 +17,11 @@ node {
 	   
 	    
 	stage('Checkstyle') {
-                    sh 'mvn checkstyle:checkstyle'
+                    bat 'mvn checkstyle:checkstyle'
                 }
 
                stage('PMD') {
-                    sh 'mvn pmd:check'
+                    bat 'mvn pmd:check'
                 }
       /* stage('mail'){
 
