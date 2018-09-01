@@ -12,28 +12,28 @@ node {
 
        stage('Compiling'){
 
-          sh 'mvn clean install'
+          bat 'mvn clean install'
        }
 	   
       stage('Sonar') {
                     //add stage sonar
-                    sh 'mvn sonar:sonar'
+                    bat 'mvn sonar:sonar'
                 }
 	    
 	stage('Checkstyle') {
-                    sh 'mvn checkstyle:checkstyle'
+                    bat 'mvn checkstyle:checkstyle'
                 }
 
                stage('PMD') {
-                    sh 'mvn pmd:check'
+                    bat 'mvn pmd:check'
                 }
       /* stage('mail'){
 
          mail body: 'project build successful',
-                     from: 'devopstrainingblr@gmail.com',
-                     replyTo: 'mithunreddytechnologies@gmail.com',
+                     from: 'chandu0219@gmail.com',
+                     replyTo: 'chandu0219@gmail.com',
                      subject: 'project build successful',
-                     to: 'mithunreddytechnologies@gmail.com'
+                     to: 'chandu0219@gmail.com'
        }*/
 	    
 	    
@@ -44,10 +44,10 @@ node {
         currentBuild.result = "FAILURE"
 
            /* mail body: "project build error is here: ${env.BUILD_URL}" ,
-            from: 'devopstrainingblr@gmail.com',
-            replyTo: 'mithunreddytechnologies@gmail.com',
-            subject: 'project build failed',
-            to: 'mithunreddytechnologies@gmail.com'
+                     from: 'chandu0219@gmail.com',
+                     replyTo: 'chandu0219@gmail.com',
+                     subject: 'project build successful',
+                     to: 'chandu0219@gmail.com'
             */
         throw err
     }
